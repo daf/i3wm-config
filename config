@@ -35,11 +35,15 @@ floating_modifier $mod
 # matches
 assign [class="banshee"] 4
 assign [class="Spotify"] 4
+# hangouts
+assign [instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] 1
+# gitg floats
+for_window [class="Gitg"] floating enable
 
 # start stuff
 bindsym $mod+Shift+t exec i3-sensible-terminal
 bindsym $mod+d exec dmenu_run
-bindsym $mod+Shift+y exec chromium-browser
+bindsym $mod+Shift+y exec google-chrome
 bindsym $mod+Shift+e exec nautilus --no-desktop
 
 # kill focused window
@@ -50,6 +54,9 @@ bindsym $mod+j focus left
 bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
+
+# find urgent windows
+bindsym $mod+grave [urgent=latest] focus
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
