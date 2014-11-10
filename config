@@ -34,14 +34,15 @@ floating_modifier $mod
 
 # matches
 assign [class="banshee"] 4
-assign [class="Spotify"] 4
+#assign [class="Spotify"] 4
 # hangouts
 assign [instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] 1
 # gitg floats
 for_window [class="Gitg"] floating enable
+for_window [class="Nitrogen"] floating enable
 
 # start stuff
-bindsym $mod+Shift+t exec i3-sensible-terminal
+bindsym $mod+Shift+t exec gnome-terminal
 bindsym $mod+d exec dmenu_run
 bindsym $mod+Shift+y exec google-chrome
 bindsym $mod+Shift+e exec nautilus --no-desktop
