@@ -45,9 +45,12 @@ for_window [class="Gnome-tweak-tool"] floating enable
 # start stuff
 bindsym $mod+Shift+t exec gnome-terminal
 bindsym $mod+d exec dmenu_run
-bindsym $mod+Shift+y exec google-chrome
+bindsym $mod+Shift+y exec google-chrome-unstable
 bindsym $mod+Shift+e exec nautilus --no-desktop
 bindsym $mod+r exec rofi -show run
+
+# screenshots
+bindsym $mod+Ctrl+3 exec /home/daf/bin/sshot.sh
 
 # kill focused window
 bindsym $mod+Shift+x kill
