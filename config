@@ -45,7 +45,7 @@ for_window [class="Gnome-tweak-tool"] floating enable
 # start stuff
 bindsym $mod+Shift+t exec gnome-terminal
 bindsym $mod+d exec dmenu_run
-bindsym $mod+Shift+y exec google-chrome-unstable
+bindsym $mod+Shift+y exec google-chrome-beta
 bindsym $mod+Shift+e exec nautilus --no-desktop
 bindsym $mod+r exec rofi -show run
 
@@ -190,36 +190,34 @@ bindsym $mod+Ctrl+r mode "resize"
 # finds out, if available)
 bar {
   status_command i3status | ~/.i3/status.py
-  tray_output xinerama-1
+  tray_output xinerama-0
   output xinerama-1
-
   colors {
-    separator #444444
-    background #222222
-    statusline #666666
-    focused_workspace #d70a53 #d70a53 #ffffff
-    active_workspace #333333 #333333 #888888
-    inactive_workspace #333333 #333333 #888888
-    urgent_workspace #eb709b #eb709b #ffffff
+    separator #586e75
+    background #002b36
+    statusline #aea79f
+    focused_workspace #586e75 #586e75 #ffffff
+    active_workspace #073642 #073642 #ffffff
+    inactive_workspace #002b36 #002b36 #aea79f
+    urgent_workspace #77216f #77216f #ffffff
   }
 }
 bar {
-    status_command i3status
+  status_command i3status
     output xinerama-0
     output xinerama-2
-    output xinerama-3
-
   colors {
-    separator #444444
-    background #222222
-    statusline #666666
-    focused_workspace #d70a53 #d70a53 #ffffff
-    active_workspace #333333 #333333 #888888
-    inactive_workspace #333333 #333333 #888888
-    urgent_workspace #eb709b #eb709b #ffffff
+    separator #586e75
+    background #002b36
+    statusline #aea79f
+    focused_workspace #586e75 #586e75 #ffffff
+    active_workspace #073642 #073642 #ffffff
+    inactive_workspace #002b36 #002b36 #aea79f
+    urgent_workspace #77216f #77216f #ffffff
   }
 }
-client.focused #d70a53 #d70a53 #ffffff #8c0333
-client.focused_inactive #333333 #333333 #888888 #333333
-client.unfocused #333333 #333333 #888888 #333333
-client.urgent #eb709b #eb709b #ffffff #eb709b
+
+client.focused #586e75 #586e75 #fdf6e3 #268bd2
+client.focused_inactive #073642 #073642 #93a1a1 #002b36
+client.unfocused #002b36 #002b36 #586e75 #002b36
+client.urgent #dc322f #dc322f #fdf6e3 #dc322f
