@@ -22,6 +22,8 @@ exec --no-startup-id volnoti
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:Droid Sans 7
+
+#new_window 1pixel
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -41,6 +43,8 @@ assign [instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] 1
 for_window [class="Gitg"] floating enable
 for_window [class="Nitrogen"] floating enable
 for_window [class="Gnome-tweak-tool"] floating enable
+for_window [class="ucar-nc2-ui-ToolsUI"] floating enable
+for_window [class="geojsonapp"] floating enable
 
 # start stuff
 bindsym $mod+Shift+t exec gnome-terminal
