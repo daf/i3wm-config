@@ -41,6 +41,8 @@ assign [class="banshee"] 4
 assign [instance="crx_nckgahadagoaajjgafhacjanaoiihapd"] 1
 # gitg floats
 for_window [class="Gitg"] floating enable
+for_window [class="Git-gui"] floating enable
+for_window [class="Gitk"] floating enable
 for_window [class="Nitrogen"] floating enable
 for_window [class="Gnome-tweak-tool"] floating enable
 for_window [class="ucar-nc2-ui-ToolsUI"] floating enable
