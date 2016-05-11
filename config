@@ -47,11 +47,14 @@ for_window [class="Nitrogen"] floating enable
 for_window [class="Gnome-tweak-tool"] floating enable
 for_window [class="ucar-nc2-ui-ToolsUI"] floating enable
 for_window [class="geojsonapp"] floating enable
+for_window [class="Nautilus"] floating enable
+for_window [class="Eog"] floating enable
+for_window [class="File-roller"] floating enable
 
 # start stuff
 bindsym $mod+Shift+t exec gnome-terminal
 bindsym $mod+d exec dmenu_run
-bindsym $mod+Shift+y exec google-chrome-beta
+bindsym $mod+Shift+y exec google-chrome-stable --disable-gpu-compositing
 bindsym $mod+Shift+e exec nautilus --no-desktop
 bindsym $mod+r exec rofi -show run
 
@@ -116,6 +119,7 @@ bindsym $mod+a focus parent
 bindsym $mod+Shift+a focus child
 
 # switch to workspace
+bindsym Mod1+Tab workspace back_and_forth
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
@@ -152,9 +156,9 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # multimedia
-bindsym --release $mod+F12 exec pactl set-sink-volume 2 +5%; exec bash -c "pamixer --get-volume | xargs volnoti-show"
-bindsym --release $mod+F11 exec pactl set-sink-volume 2 -- -5%; exec bash -c "pamixer --get-volume | xargs volnoti-show"
-bindsym --release $mod+F10 exec pactl set-sink-mute 2 toggle; exec bash -c "pamixer --get-mute && volnoti-show -m || (pamixer --get-volume | xargs volnoti-show)"
+bindsym --release $mod+F12 exec pactl set-sink-volume 0 +5%; exec bash -c "pamixer --get-volume | xargs volnoti-show"
+bindsym --release $mod+F11 exec pactl set-sink-volume 0 -- -5%; exec bash -c "pamixer --get-volume | xargs volnoti-show"
+bindsym --release $mod+F10 exec pactl set-sink-mute 0 toggle; exec bash -c "pamixer --get-mute && volnoti-show -m || (pamixer --get-volume | xargs volnoti-show)"
 bindsym --release $mod+F9 exec playerctl next
 bindsym --release $mod+F8 exec playerctl play-pause
 bindsym --release $mod+F7 exec playerctl previous
@@ -166,7 +170,7 @@ bindsym $mod+q restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # lock
-bindsym $mod+Shift+w exec "i3lock --color 000070"
+bindsym $mod+Shift+w exec "i3lock --color 666666 -i ~/.i3/axiom.png -d"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
