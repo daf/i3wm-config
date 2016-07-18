@@ -35,7 +35,13 @@ font pango:Overpass 7
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# gaps
+gaps inner 10
+gaps outer 5
+
 # matches
+for_window [class="^.*"] border pixel 2
+
 assign [class="banshee"] 4
 #assign [class="Spotify"] 4
 # hangouts
