@@ -30,7 +30,7 @@ import subprocess
 
 vpn_map = {'anc': '192.168.1.1',
            'pdx': '192.168.8.1',
-           'pvd': '192.168.24.1'}
+           'ptk': '10.0.0.1'}
 
 def get_vpn_status(vpn_key):
     ret = subprocess.call("ping -c 1 -W1 -q %s >/dev/null" % vpn_map[vpn_key], shell=True)
@@ -75,7 +75,6 @@ if __name__ == '__main__':
             line, prefix = line[1:], ','
 
         j = json.loads(line)
-        j.insert(0, get_vpn_status('pdx'))
-        j.insert(0, get_vpn_status('pvd'))
+        j.insert(0, get_vpn_status('ptk'))
         print_line(prefix+json.dumps(j))
 
