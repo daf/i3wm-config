@@ -9,20 +9,22 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-force_xinerama yes
 set $mod Mod4
+
+set $font Interface 7
 
 # startup
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id unity-settings-daemon
 exec --no-startup-id volnoti
+exec_always --no-startup-id ~/.i3/polybar.sh &
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:Droid Sans 7
-font pango:Overpass 7
+font pango:$font
 
 #new_window 1pixel
 # Before i3 v4.8, we used to recommend this one as the default:
@@ -36,8 +38,8 @@ font pango:Overpass 7
 floating_modifier $mod
 
 # gaps
-gaps inner 10
-gaps outer 5
+gaps inner 30
+gaps outer 0
 
 # matches
 for_window [class="^.*"] border pixel 2
@@ -61,12 +63,13 @@ for_window [class="File-roller"] floating enable
 # start stuff
 bindsym $mod+Shift+t exec gnome-terminal
 bindsym $mod+d exec dmenu_run
-bindsym $mod+Shift+y exec google-chrome-stable --disable-gpu-compositing
+bindsym $mod+Shift+y exec google-chrome-stable
 bindsym $mod+Shift+e exec nautilus --no-desktop
 bindsym $mod+r exec rofi -show run
+bindsym $mod+p exec rofi -modi "clipboard:greenclip print" -show clipboard
 
 # screenshots
-bindsym $mod+Ctrl+3 exec /home/daf/bin/sshot.sh
+bindsym --release $mod+Ctrl+3 exec /home/daf/bin/sshot.sh
 
 # kill focused window
 bindsym $mod+Shift+x kill
@@ -114,6 +117,7 @@ bindsym $mod+f fullscreen
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
+bindsym $mod+Shift+p sticky toggle
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -126,21 +130,37 @@ bindsym $mod+a focus parent
 bindsym $mod+Shift+a focus child
 
 # switch to workspace
-bindsym Mod1+Tab workspace back_and_forth
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
-bindsym $mod+F1 workspace 11
-bindsym $mod+F2 workspace 12
-bindsym $mod+F3 workspace 13
-bindsym $mod+F4 workspace 14
+#bindsym Mod1+Tab workspace back_and_forth
+bindsym $mod+Control+1 workspace 1
+bindsym $mod+Control+2 workspace 2
+bindsym $mod+Control+3 workspace 3
+bindsym $mod+Control+4 workspace 4
+bindsym $mod+Control+5 workspace 5
+bindsym $mod+Control+6 workspace 6
+bindsym $mod+Control+7 workspace 7
+bindsym $mod+Control+8 workspace 8
+bindsym $mod+Control+9 workspace 9
+bindsym $mod+Control+0 workspace 10
+bindsym $mod+Control+F1 workspace 11
+bindsym $mod+Control+F2 workspace 12
+bindsym $mod+Control+F3 workspace 13
+bindsym $mod+Control+F4 workspace 14
+
+bindsym $mod+1 exec i3pmw switch 1
+bindsym $mod+2 exec i3pmw switch 2
+bindsym $mod+3 exec i3pmw switch 3
+bindsym $mod+4 exec i3pmw switch 4
+bindsym $mod+5 exec i3pmw switch 5
+bindsym $mod+6 exec i3pmw switch 6
+bindsym $mod+7 exec i3pmw switch 7
+bindsym $mod+8 exec i3pmw switch 8
+bindsym $mod+9 exec i3pmw switch 9
+bindsym $mod+0 exec i3pmw switch 10
+bindsym $mod+F1 exec i3pmw switch 11
+bindsym $mod+F2 exec i3pmw switch 12
+bindsym $mod+F3 exec i3pmw switch 13
+bindsym $mod+F4 exec i3pmw switch 14
+
 
 # focus monitors
 bindsym $mod+bracketleft focus output left
@@ -151,29 +171,44 @@ bindsym $mod+Shift+bracketleft move output left
 bindsym $mod+Shift+bracketright move output right
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
-bindsym $mod+Shift+F1 move container to workspace 11
-bindsym $mod+Shift+F2 move container to workspace 12
-bindsym $mod+Shift+F3 move container to workspace 13
-bindsym $mod+Shift+F4 move container to workspace 14
+bindsym $mod+Control+Shift+1 move container to workspace 1
+bindsym $mod+Control+Shift+2 move container to workspace 2
+bindsym $mod+Control+Shift+3 move container to workspace 3
+bindsym $mod+Control+Shift+4 move container to workspace 4
+bindsym $mod+Control+Shift+5 move container to workspace 5
+bindsym $mod+Control+Shift+6 move container to workspace 6
+bindsym $mod+Control+Shift+7 move container to workspace 7
+bindsym $mod+Control+Shift+8 move container to workspace 8
+bindsym $mod+Control+Shift+9 move container to workspace 9
+bindsym $mod+Control+Shift+0 move container to workspace 10
+bindsym $mod+Control+Shift+F1 move container to workspace 11
+bindsym $mod+Control+Shift+F2 move container to workspace 12
+bindsym $mod+Control+Shift+F3 move container to workspace 13
+bindsym $mod+Control+Shift+F4 move container to workspace 14
+
+bindsym $mod+Shift+1 exec i3pmw move 1
+bindsym $mod+Shift+2 exec i3pmw move 2
+bindsym $mod+Shift+3 exec i3pmw move 3
+bindsym $mod+Shift+4 exec i3pmw move 4
+bindsym $mod+Shift+5 exec i3pmw move 5
+bindsym $mod+Shift+6 exec i3pmw move 6
+bindsym $mod+Shift+7 exec i3pmw move 7
+bindsym $mod+Shift+8 exec i3pmw move 8
+bindsym $mod+Shift+9 exec i3pmw move 9
+bindsym $mod+Shift+0 exec i3pmw move 10
+bindsym $mod+Shift+F1 exec i3pmw move 11
+bindsym $mod+Shift+F2 exec i3pmw move 12
+bindsym $mod+Shift+F3 exec i3pmw move 13
+bindsym $mod+Shift+F4 exec i3pmw move 14
 
 # scratchpad
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # multimedia
-bindsym --release $mod+F12 exec pactl set-sink-volume 0 +5%; exec bash -c "pamixer --get-volume | xargs volnoti-show"
-bindsym --release $mod+F11 exec pactl set-sink-volume 0 -- -5%; exec bash -c "pamixer --get-volume | xargs volnoti-show"
-bindsym --release $mod+F10 exec pactl set-sink-mute 0 toggle; exec bash -c "pamixer --get-mute && volnoti-show -m || (pamixer --get-volume | xargs volnoti-show)"
+bindsym --release $mod+F12 exec pactl set-sink-volume 1 +5%; exec bash -c "pamixer --get-volume | xargs volnoti-show"
+bindsym --release $mod+F11 exec pactl set-sink-volume 1 -5%; exec bash -c "pamixer --get-volume | xargs volnoti-show"
+bindsym --release $mod+F10 exec pactl set-sink-mute 1 toggle; exec bash -c "pamixer --get-mute && volnoti-show -m || (pamixer --get-volume | xargs volnoti-show)"
 bindsym --release $mod+F9 exec playerctl next
 bindsym --release $mod+F8 exec playerctl play-pause
 bindsym --release $mod+F7 exec playerctl previous
@@ -185,7 +220,7 @@ bindsym $mod+q restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # lock
-bindsym $mod+Shift+w exec "i3lock --color 666666 -i ~/.i3/axiom.png -d"
+bindsym $mod+Shift+w exec "i3lock --color 222222 -i ~/.i3/axiom.png -d"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -213,40 +248,7 @@ mode "resize" {
 
 bindsym $mod+Ctrl+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-  font pango:Overpass 7
-  status_command i3status | ~/.i3/status.py
-  tray_output xinerama-2
-  output xinerama-2
-  colors {
-    separator #969896
-    background #1d1f21
-    statusline #c5c8c6
-    focused_workspace #81a2be #81a2be #1d1f21
-    active_workspace #373b41 #373b41 #ffffff
-    inactive_workspace #282a2e #282a2e #969896
-    urgent_workspace #cc6666 #cc6666 #ffffff
-  }
-}
-bar {
-  font pango:Overpass 7
-  status_command i3status
-    output xinerama-0
-    output xinerama-1
-  colors {
-    separator #969896
-    background #1d1f21
-    statusline #c5c8c6
-    focused_workspace #81a2be #81a2be #1d1f21
-    active_workspace #373b41 #373b41 #ffffff
-    inactive_workspace #282a2e #282a2e #969896
-    urgent_workspace #cc6666 #cc6666 #ffffff
-  }
-}
-
-client.focused #81a2be #81a2be #1d1f21 #282a2e
-client.focused_inactive #373b41 #373b41 #969896 #282a2e
-client.unfocused #282a2e #282a2e #969896 #282a2e
-client.urgent #373b41 #cc6666 #ffffff #cc6666
+client.focused #99cc99 #99cc99 #000000 #2d2d2d
+client.focused_inactive #393939 #393939 #888888 #292d2e
+client.unfocused #2d2d2d #2d2d2d #999999 #292d2e
+client.urgent #2f343a #900000 #ffffff #900000
