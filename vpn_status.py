@@ -11,11 +11,11 @@ vpn_map = {'anc': '192.168.1.1',
 def get_vpn_status(vpn_key):
     ret = subprocess.call("ping -c 1 -W1 -q %s >/dev/null" % vpn_map[vpn_key], shell=True)
     if ret != 0:
-        bgcolor = '#a00000'
-        fgcolor = '#ff0000'
+        bgcolor = '#c48980'
+        fgcolor = '#7F000000'
     else:
-        bgcolor = '#00a000'
-        fgcolor = '#77ff77'
+        bgcolor = '#4b7508'
+        fgcolor = '#7FFFFFFF'
 
     return {'name': 'vpn_%s' % vpn_key,
             'bgcolor': bgcolor,

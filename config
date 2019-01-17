@@ -17,6 +17,7 @@ set $font Interface 7
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id unity-settings-daemon
 exec --no-startup-id volnoti
+exec --no-startup-id compton
 exec_always --no-startup-id ~/.i3/polybar.sh &
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -38,8 +39,8 @@ font pango:$font
 floating_modifier $mod
 
 # gaps
-gaps inner 30
-gaps outer 0
+gaps inner 20
+gaps outer 20
 
 # matches
 for_window [class="^.*"] border pixel 2
@@ -220,7 +221,8 @@ bindsym $mod+q restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # lock
-bindsym $mod+Shift+w exec "i3lock --color 222222 -i ~/.i3/axiom.png -d"
+#bindsym $mod+Shift+w exec "i3lock --color 222222 -i ~/.i3/axiom.png -d"
+bindsym $mod+Shift+w exec "glitchlock"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -248,7 +250,7 @@ mode "resize" {
 
 bindsym $mod+Ctrl+r mode "resize"
 
-client.focused #99cc99 #99cc99 #000000 #2d2d2d
-client.focused_inactive #393939 #393939 #888888 #292d2e
-client.unfocused #2d2d2d #2d2d2d #999999 #292d2e
-client.urgent #2f343a #900000 #ffffff #900000
+client.focused #06b6ef #06b6ef #2f1e2e #41323f
+client.focused_inactive #4f424c #4f424c #776e71 #41323f
+client.unfocused #41323f #41323f #776e71 #41323f
+client.urgent #4f424c #ef6155 #e7e9db #ef6155
