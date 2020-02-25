@@ -62,6 +62,10 @@ for_window [class="Nautilus"] floating enable
 for_window [class="Eog"] floating enable
 for_window [class="File-roller"] floating enable
 
+# omni window stuff
+for_window [con_mark="omni"] floating enable
+for_window [con_mark="omni"] sticky enable
+
 # start stuff
 bindsym $mod+Shift+t exec gnome-terminal
 bindsym $mod+d exec dmenu_run
