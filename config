@@ -216,12 +216,12 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # multimedia
-bindsym --release $mod+F12 exec pactl set-sink-volume 1 +5%; exec bash -c "pamixer --get-volume | xargs volnoti-show"
-bindsym --release $mod+F11 exec pactl set-sink-volume 1 -5%; exec bash -c "pamixer --get-volume | xargs volnoti-show"
-bindsym --release $mod+F10 exec pactl set-sink-mute 1 toggle; exec bash -c "pamixer --get-mute && volnoti-show -m || (pamixer --get-volume | xargs volnoti-show)"
-bindsym --release $mod+F9 exec playerctl next
-bindsym --release $mod+F8 exec playerctl play-pause
-bindsym --release $mod+F7 exec playerctl previous
+bindsym --release $mod+F12 exec pactl set-sink-volume 1 +5%; exec bash -c "pamixer --get-volume -s 1 | xargs volnoti-show"
+bindsym --release $mod+F11 exec pactl set-sink-volume 1 -5%; exec bash -c "pamixer --get-volume -s 1 | xargs volnoti-show"
+bindsym --release $mod+F10 exec pactl set-sink-mute 1 toggle; exec bash -c "pamixer --get-mute -s 1 && volnoti-show -m || (pamixer --get-volume -s 1 | xargs volnoti-show)"
+bindsym --release $mod+F9 exec playerctl -p spotify next
+bindsym --release $mod+F8 exec playerctl -p spotify play-pause
+bindsym --release $mod+F7 exec playerctl -p spotify previous
 
 # reload the configuration file
 bindsym $mod+Shift+r reload
